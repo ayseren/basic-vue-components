@@ -30,12 +30,12 @@
 					<plan name="The Addict"></plan> 
 					boyle uzun uzun component yazmak yerine v-for ile yazabiliriz, plans new Vue icinde.
 				-->
-				<plan v-for="plan in plans" :name="plan" @select="selectPlan" :selected-plan="selectedPlan"></plan>
+				<plan-picker-item v-for="plan in plans" :name="plan" @select="selectPlan" :selected-plan="selectedPlan"></plan-picker-item>
 				<!-- name="The Curios" dedigimiz yere prop deniyor. props are custom attributes that you register on a component. -->
 			</div>
 		</script>
 
-		<script type="text/x-template" id="plan-template">
+		<script type="text/x-template" id="plan-picker-item-template">
 			<div @click="select" class="plan" :class="{'active-plan': isSelected}">
 				<div class="description">
 					<span class="title">{{name}}</span>

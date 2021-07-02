@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Vue.js Components Fundamentals</title>
+	</head>
+
+	<body>
+		<div id="app" class="container mx-auto py-6">
+			<!-- <click-counter></click-counter> -->
+			<div class="content">
+				<h1 class="title">Coffee Plans</h1>
+
+				<h2 class="subtitle">
+					We travel the world to source the very best single origin coffee for you
+				</h2>
+
+				<plan-picker></plan-picker>
+			</div>
+		</div>
+
+		<!-- nested component yapmis olduk -->
+		<script type="text/x-template" id="plan-picker-template">
+			<div class="plans">
+				<!-- 
+					<plan name="The Curios"></plan>
+					<plan name="The Single"></plan>
+					<plan name="The Addict"></plan> 
+					boyle uzun uzun component yazmak yerine v-for ile yazabiliriz, plans new Vue icinde.
+				-->
+				<plan v-for="plan in plans" :name="plan" @select="selectPlan" :selected-plan="selectedPlan"></plan>
+				<!-- name="The Curios" dedigimiz yere prop deniyor. props are custom attributes that you register on a component. -->
+			</div>
+		</script>
+
+		<script type="text/x-template" id="plan-template">
+			<div @click="select" class="plan" :class="{'active-plan': isSelected}">
+				<div class="description">
+					<span class="title">{{name}}</span>
+				</div>
+			</div>
+		</script>
+
+		<!-- 
+		<script type="type/x-template" id="click-counter-template">
+			mesela buraya p yazamayiz, component template should contain exactly one root element. bu yuzden birden fazla element olacaksa div icine koyabiliriz.
+			<button @click="count++">{{count}}</button>
+		</script>
+		-->
+
+		<script src="https://unpkg.com/vue"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="style.css">
+	</body>
+</html>
